@@ -35,5 +35,8 @@ function llenarSelect() {
     
     for(let i = max; i > min; i++) {
         console.log(i)
+        console.log('new test')
     }
 }; 
+
+// otro cambio
