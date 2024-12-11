@@ -1,20 +1,43 @@
 // Variables 
-const resultado = document.querySelector('#resultado');
+const marca = document.querySelector('#marca');
 const year = document.querySelector('#year');
+const minimo = document.querySelector('#minimo');
+const maximo = document.querySelector('#maximo');
+const puertas = document.querySelector('#puertas');
+const transmision = document.querySelector('#transmision');
+const color = document.querySelector('#color');
+
+// Contenedor para resultados
+const resultado = document.querySelector('#resultado');
 
 const max = new Date().getFullYear();
 const min = max - 10;
+
+// Generar un objeto con la busqueda
+const datosBusqueda = {
+    marca: '',
+    year: '',
+    minimo: '',
+    maximo: '',
+    puertas: '',
+    transmision: '',
+    color: ''
+}
 
 
 // Eventos 
 document.addEventListener('DOMContentLoaded', () => {
     mostrarAutos(); // muestra los autos al cargar 
 
-    // llena las opciones de anios \
+    // llena las opciones de anios
     llenarSelect();
 
 })
 
+// Event listener para los select de busqueda
+marca.addEventListener('change', e => {
+    datosBusqueda.marca = e.target.value;
+})
 
 // Funciones
 function mostrarAutos () {
@@ -33,9 +56,13 @@ function mostrarAutos () {
 
 function llenarSelect() {
     
-    for(let i = max; i > min; i++) {
-        console.log(i)
-        console.log('new test')
-    }
-// otro cambio, sin cambio
+    for(let i = max; i >= min; i--) {
+        const opcion = document.createElement('option');
+        opcion.value = i;
+        opcion.textContent = i;
+        year.appendChild(opcion) // Agrega las opciones de anio al select
 
+    }
+}
+
+// cuarta prueba
